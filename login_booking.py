@@ -29,5 +29,5 @@ def test_open_tribun(driver, username1, password1):
 
             driver.find_element(By.ID,  "password").send_keys(password1)
             driver.find_element(By.XPATH,  "//input[@value='Login']").click()
-            time.sleep(2)
+            time.sleep(3)
             print("udah")
