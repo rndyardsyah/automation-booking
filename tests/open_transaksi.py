@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 from pages.login_page import LoginPage
 from pages.transaksi_page import TransaksiPage
-
+# D:\automation-booking\tests\pages\transaksi_page.py
 @pytest.fixture()
 def driver():
             driver = webdriver.Chrome()
@@ -25,7 +25,7 @@ def test_open_tribun(driver):
         login_page.click_login()
         time.sleep(3)
 
-def buka_transaksi():
+def test_buka_transaksi():
         transaksi_page.clickdropdown()
         transaksi_page.clicktransaksi()
 

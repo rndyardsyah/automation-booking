@@ -5,7 +5,7 @@ class TransaksiPage():
         self.click_dropdown = (By.CLASS_NAME,  "login-username")
         self.click_transaksi = (By.XPATH, "//a[@title='Transaksi']")
 
-    def clickdropdown ():
+    def clickdropdown (self):
         self.driver.find_element(*self.click_dropdown).click()
-    def clicktransaksi ():
+    def clicktransaksi (self):
         self.driver.find_element(*self.click_transaksi).click()
