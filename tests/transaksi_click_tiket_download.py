@@ -16,9 +16,9 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
 
-# @pytest.mark.parametrize("username1, password1", [
-#     ("qa.tribunbooking@gmail.com", "password1"),
-# ])
+@pytest.mark.parametrize("username1, password1", [
+    ("qa.tribunbooking@gmail.com", "password1"),
+])
 def test_open_tribun(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
