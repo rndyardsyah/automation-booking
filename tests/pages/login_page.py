@@ -1,20 +1,18 @@
+# pages/login_page.py
 from selenium.webdriver.common.by import By
 
-class LoginPage():
-    def __init__ (self, driver):
+class LoginPage:
+    def __init__(self, driver):
         self.driver = driver
-        self.login_home = (By.CLASS_NAME,  "menu-login")
-        self.username_textfield = (By.ID,  "email")
-        self.password_textfield = (By.ID,  "password")
-        self.login_button = (By.XPATH,  "//input[@value='Login']")
 
-    def open_booking(self, url):
-        self.driver.get(url)
-    def click_home(self):
-        self.driver.find_element(*self.login_home).click()
-    def send_username(self, username):
-        self.driver.find_element(*self.username_textfield).send_keys(username)
-    def send_password(self, password):
-        self.driver.find_element(*self.password_textfield).send_keys(password)
-    def click_login(self):
-        self.driver.find_element(*self.login_button).click()
+    def open_login_page(self):
+        self.driver.get("https://booking.tribunnews.com/")
+        self.driver.find_element(By.ID, "menu-burger").click()
+        self.driver.find_element(By.CLASS_NAME, "button-login").click()
+
+    def login(self):
+        email_sso = self.driver.find_element(By.ID, "email")
+        email_sso.send_keys("qa.tribunbooking@gmail.com")
+
+        self.driver.find_element(By.ID, "password").send_keys("password1")
+        self.driver.find_element(By.XPATH, "//input[@value='Login']").click()
