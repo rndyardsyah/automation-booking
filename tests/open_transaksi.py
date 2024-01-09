@@ -26,3 +26,5 @@ def test_open_tribun(driver):
     transaksi_page.click_transaksi()
     time.sleep(3)
     # print("Transaksi page opened")
+
+#     Test push baru
