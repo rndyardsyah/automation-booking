@@ -9,6 +9,11 @@ class LoginPage:
         self.driver.get("https://booking.tribunnews.com/")
         self.driver.find_element(By.ID, "menu-burger").click()
         self.driver.find_element(By.CLASS_NAME, "button-login").click()
+        # self.driver.find_element(By.CLASS_NAME, "button-logout").click()
+    
+    def logout(self):
+        self.driver.find_element(By.ID, "menu-burger").click()
+        self.driver.find_element(By.CLASS_NAME, "button-logout").click()
 
     def login(self):
         email_sso = self.driver.find_element(By.ID, "email")

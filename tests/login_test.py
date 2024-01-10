@@ -20,4 +20,5 @@ def test_open_tribun(driver):
     login_page.open_login_page()
     login_page.login()
     time.sleep(10)
+    login_page.logout()
     # assert driver.find_element_by_id("main-home").is_displayed(), "muncul"

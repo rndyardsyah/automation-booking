@@ -18,7 +18,7 @@ def driver():
 # @pytest.mark.parametrize("username1, password1", [
 #     ("qa.tribunbooking@gmail.com", "password1"),
 # ])
-def test_open_tribun(driver):
+def test_transaksi_click_invoice(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()

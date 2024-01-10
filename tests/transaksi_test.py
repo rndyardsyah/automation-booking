@@ -15,7 +15,7 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
 
-def test_open_tribun(driver):
+def test_transakasi(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()
