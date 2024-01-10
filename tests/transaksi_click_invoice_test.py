@@ -15,9 +15,19 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
 
+# @pytest.mark.parametrize("username1, password1", [
+#     ("qa.tribunbooking@gmail.com", "password1"),
+# ])
 def test_open_tribun(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()
     time.sleep(10)
-    # assert driver.find_element_by_id("main-home").is_displayed(), "muncul"
+    print("udah")
+
+    transaksi_page = TransaksiPage(driver)
+    transaksi_page.click_humberger()
+    transaksi_page.click_transaksi()
+    transaksi_page.click_invoice()
+    time.sleep(3)
+    print("Transaksi page opened")
