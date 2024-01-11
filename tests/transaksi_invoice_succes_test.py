@@ -18,7 +18,7 @@ def driver():
 # @pytest.mark.parametrize("username1, password1", [
 #     ("qa.tribunbooking@gmail.com", "password1"),
 # ])
-def test_transaksi_click_invoice(driver):
+def test_transaksi_invoice_invoice(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()
@@ -29,5 +29,6 @@ def test_transaksi_click_invoice(driver):
     transaksi_page.click_humberger()
     transaksi_page.click_transaksi()
     transaksi_page.click_invoice()
+    assert verify_invoice.is_displayed(),"muncul"
     time.sleep(3)
     print("Transaksi page opened")

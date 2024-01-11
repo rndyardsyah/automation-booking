@@ -2,7 +2,7 @@ import pytest
 import time
 from selenium import webdriver
 from pages.login_page import LoginPage
-from pages.transaksi_page import TransaksiPage
+from pages.tiket_page import TiketPage
 
 @pytest.fixture()
 def driver():
@@ -15,12 +15,14 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
 
-def test_login(driver):
+def test_transaksi_download_tiket(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()
     time.sleep(10)
-    # transaksi_page = TransaksiPage(driver)
-    # assert transaksi_page.click_humberger()
-    login_page.logout()
-    # assert driver.find_element_by_id("main-home").is_displayed(), "muncul"
+    print("udah")
+
+    tiket_page = TiketPage(driver)
+    tiket_page.open_tiket_page()
+    # tiket_page.click_tiket()
+    
