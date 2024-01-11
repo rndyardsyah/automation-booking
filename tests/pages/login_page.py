@@ -22,3 +22,4 @@ class LoginPage:
         self.driver.find_element(By.ID, "password").send_keys("password1")
         self.driver.find_element(By.XPATH, "//input[@value='Login']").click()
         self.driver.find_element(By.ID, "menu-burger")
+        # time.sleep(5)

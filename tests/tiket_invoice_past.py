@@ -2,7 +2,7 @@ import pytest
 import time
 from selenium import webdriver
 from pages.login_page import LoginPage
-from pages.transaksi_page import TransaksiPage
+from pages.tiket_page import TiketPage
 
 @pytest.fixture()
 def driver():
@@ -15,16 +15,17 @@ def driver():
     driver.implicitly_wait(10)
     yield driver
 
-def test_transakasi(driver):
+def test_transaksi_download_tiket(driver):
     login_page = LoginPage(driver)
     login_page.open_login_page()
     login_page.login()
-    # time.sleep(10)
+    time.sleep(10)
+    print("udah")
 
-    transaksi_page = TransaksiPage(driver)
-    transaksi_page.click_humberger()
-    transaksi_page.click_transaksi()
-    time.sleep(3)
-    # print("Transaksi page opened")
-
-#     Test push baru
+    tiket_page = TiketPage(driver)
+    tiket_page.open_tiket_page()
+    tiket_page.click_past_event()
+    tiket_page.click_past_invoice()
+    time.sleep(2)
+    # tiket_page.click_tiket()
+    
