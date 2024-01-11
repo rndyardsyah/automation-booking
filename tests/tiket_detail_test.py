@@ -25,6 +25,6 @@ def test_transaksi_download_tiket(driver):
     tiket_page = TiketPage(driver)
     tiket_page.open_tiket_page()
     tiket_page.click_tiket_detail()
-    time.sleet(2)
+    time.sleep(2)
     # tiket_page.click_tiket()
     
