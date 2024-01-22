@@ -1,5 +1,7 @@
 import pytest
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
@@ -24,7 +26,7 @@ def test_search(driver):
 
     home_page = HomePage(driver)
     home_page.click_search()
-    home_page.type_in_search("mata lokal")
+    home_page.type_in_search("konsep bisnis")
     # time.sleep(10)
 
     detail_page = DetailPage(driver)
@@ -35,10 +37,12 @@ def test_search(driver):
     detail_page.click_tambah_detail()
     detail_page.click_beli_detail()
     detail_page.data_diri()
-    detail_page.metode()
-    detail_page.type_in_metode("bank")
-    detail_page.pilih_bank()
+    detail_page.select_payment_method("Bank Transfer")
+    detail_page.wait_for_bank_transfer_option()
+    detail_page.pilih_bank("Bank Central Asia (BCA)")
+    detail_page.wait_bank_appear()
+    detail_page.click_checkbox()
+
     time.sleep(10)
     
-#    //*[@id='WrapperJenisMetode']/div/span/span[1]/span
-#select2-StateJenisMetode-container
+
