@@ -11,7 +11,7 @@ class DetailPage:
         self.stok_element = (By.XPATH, "//div[@class='stok-tiket']")
         self.clickmetode = (By.XPATH, "//span[@id='select2-StateMetode-container']")
         self.findsearch = (By.XPATH, "//input[@type='search']")
-        self.clickbank = (By.ID, "select2-StateJenisMetode-container")
+        self.clickbank = (By.XPATH, "//span[@id='select2-StateJenisMetode-container']/div/p")
     
     def get_stok_value(self):
         self.driver.find_element(*self.stok_element)
@@ -35,6 +35,6 @@ class DetailPage:
         search_input.send_keys(Keys.RETURN)
 
     def pilih_bank(self):
-        self.driver.find_element(*self.clickbank).send_keys("")
+        self.driver.find_element(*self.clickbank).click()
         # self.driver.find_element(By.XPATH, "//span[@id='select2-StateJenisMetode-container']").click()
         
