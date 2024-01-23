@@ -1,4 +1,5 @@
 import pytest
+import allure
 import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -32,16 +33,28 @@ def test_search(driver):
     detail_page = DetailPage(driver)
     detail_page.click_detail_search()
     detail_page.click_beli_tiket_detail()
-    # detail_page.get_stok_value()
-    # print("Value of data-stok attribute:", data-stok)
+    stok_sebelum = detail_page.get_stock_before_purchase()
+    print("stok awal :", stok_sebelum)
     detail_page.click_tambah_detail()
     detail_page.click_beli_detail()
+    detail_page.clear()
     detail_page.data_diri()
     detail_page.select_payment_method("Bank Transfer")
     detail_page.wait_for_bank_transfer_option()
     detail_page.pilih_bank("Bank Central Asia (BCA)")
     detail_page.wait_bank_appear()
     detail_page.click_checkbox()
+    detail_page.click_beli()
+    time.sleep(5)
+    #balik ke search 
+    home_page.click_search()
+    home_page.type_in_search("konsep bisnis")
+    detail_page.click_detail_search()
+    detail_page.click_beli_tiket_detail()
+    stok_sesudah = detail_page.get_stock_after_purchase()
+    print("stok akhir :", stok_sesudah)
+    print(stok_sebelum, stok_sesudah, "Tiket berhasil dibeli. Stok tiket berkurang.")
+
 
     time.sleep(10)
     

@@ -15,11 +15,14 @@ class DetailPage:
         self.clickmetode = (By.XPATH, "//span[@id='select2-StateMetode-container']")
         self.clickbank = (By.XPATH, "//span[@id='select2-StateJenisMetode-container']")
         self.checkbox = (By.ID, "cek")
-        
-    
-    def get_stok_value(self):
-        self.driver.find_element(*self.stok_element)
-        return stok_element.get_attribute("data-stok")
+        self.button_beli = (By.ID, "btnch")
+
+    def get_stock_before_purchase(self):
+        stok_sebelum_element = self.driver.find_element(By.XPATH, "//div[@class='stok-tiket']")
+        return int(stok_sebelum_element.get_attribute("data-stok"))
+    def get_stock_after_purchase(self):
+        stok_sesudah_element = self.driver.find_element(By.XPATH, "//div[@class='stok-tiket']")
+        return int(stok_sesudah_element.get_attribute("data-stok"))
 
     def click_detail_search(self):
         self.driver.find_element(*self.clickeventsearch).click()
@@ -29,18 +32,16 @@ class DetailPage:
         self.driver.find_element(*self.clicktambah).click()
     def click_beli_detail(self):
         self.driver.find_element(*self.clickbeli).click()        
+    def clear(self):
+        self.driver.find_element(By.ID, "name").clear()
     def data_diri(self):
         self.driver.find_element(By.ID, "name").send_keys("Automation")
     def metode(self):
         self.driver.find_element(*self.clickmetode).click()
     def click_checkbox(self):
         self.driver.find_element(*self.checkbox).click()
-  
-    def type_in_metode(self, search_text):
-        search_input = self.driver.find_element(*self.findsearch)
-        search_input.send_keys(search_text)
-        search_input.send_keys(Keys.RETURN)
-    #     # search_input.send_keys(Keys.TAB)
+    def click_beli(self):
+        self.driver.find_element(*self.button_beli).click()
 
     def select_payment_method(self, method_text):
         # Locate the dropdown element

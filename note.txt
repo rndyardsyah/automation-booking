@@ -1,1 +1,4 @@
 generate html report : pytest --html=report.html --self-contained-html
+pytest detail_beli_test.py  --html=regression-19-01-2024.html
+/html/body/div[2]/div[2]/div/div/div[2]/div[2]/div[2]
+waiting-font-sm-bold
