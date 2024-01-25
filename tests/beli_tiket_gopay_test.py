@@ -6,6 +6,7 @@ from selenium import webdriver
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
 from pages.detail_page import DetailPage
+from pages.window_page import ChromeDriver
 
 @pytest.fixture()
 def driver():
@@ -38,10 +39,10 @@ def test_search(driver):
     detail_page.click_beli_detail()
     detail_page.clear()
     detail_page.data_diri()
-    detail_page.select_payment_method("Bank Transfer")
-    detail_page.wait_for_bank_transfer_option()
-    detail_page.pilih_bank("Bank Central Asia (BCA)")
-    detail_page.wait_bank_appear()
+    detail_page.pilih_ewallet("E-wallet")
+    detail_page.wait_ewallet()
+    detail_page.pilih_gopay("Gopay [QRIS]")
+    detail_page.wait_gopay_appear()
     detail_page.click_checkbox()
     detail_page.click_beli()
     time.sleep(5)

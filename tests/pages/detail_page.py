@@ -43,32 +43,84 @@ class DetailPage:
     def click_beli(self):
         self.driver.find_element(*self.button_beli).click()
 
+# start pilih bank
     def select_payment_method(self, method_text):
-        # Locate the dropdown element
         dropdown_element = self.driver.find_element(By.ID, "StateMetode")
-        # Create a Select object
         dropdown = Select(dropdown_element)
-        # Select the option by visible text
         dropdown.select_by_visible_text(method_text)
 
     def wait_for_bank_transfer_option(self):
-        # Wait for the Bank Transfer option to be clickable
         bank_transfer_option_locator = (By.XPATH, "//option[text()='Bank Transfer']")
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(bank_transfer_option_locator)
         )
     
     def pilih_bank(self, method_text):
-        # Locate the dropdown element
         dropdown_element = self.driver.find_element(By.ID, "StateJenisMetode")
-        # Create a Select object
         dropdown = Select(dropdown_element)
-        # Select the option by visible text
         dropdown.select_by_visible_text(method_text)
 
     def wait_bank_appear(self):
-        # Wait for the Bank Transfer option to be clickable
         bank_transfer_option_locator = (By.XPATH, "//option[text()='Bank Central Asia (BCA)']")
         WebDriverWait(self.driver, 10).until(
             EC.element_to_be_clickable(bank_transfer_option_locator)
         )
+# end pilih bank
+
+# start pilih E-wallet
+    def pilih_ewallet(self, method_text):
+        dropdown_ewallet = self.driver.find_element(By.ID, "StateMetode")
+        dropdown = Select(dropdown_ewallet)
+        dropdown.select_by_visible_text(method_text)
+
+    def wait_ewallet(self):
+        ewallet_option_locator = (By.XPATH, "//option[text()='E-wallet']")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(ewallet_option_locator)
+        )
+    #gopay
+    def pilih_gopay(self, method_text):
+        dropdown_gopay = self.driver.find_element(By.ID, "StateJenisMetode")
+        dropdown = Select(dropdown_gopay)
+        dropdown.select_by_visible_text(method_text)
+    def wait_gopay_appear(self):
+        gopay_option_locator = (By.XPATH, "//option[text()='Gopay [QRIS]']")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(gopay_option_locator)
+        )
+    #Shopeepay
+    def pilih_shopeepay(self, method_text):
+        dropdown_shopeepay = self.driver.find_element(By.ID, "StateJenisMetode")
+        dropdown = Select(dropdown_shopeepay)
+        dropdown.select_by_visible_text(method_text)
+    def wait_shopeepay_appear(self):
+        shopeepay_option_locator = (By.XPATH, "//option[text()='Shopee Pay']")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(shopeepay_option_locator)
+        )
+# end pilih E-wallet
+
+# start pilih Gerai
+    def pilih_gerai(self, method_text):
+        dropdown_element = self.driver.find_element(By.ID, "StateMetode")
+        dropdown = Select(dropdown_element)
+        dropdown.select_by_visible_text(method_text)
+
+    def wait_gerai_option(self):
+        gerai_option_locator = (By.XPATH, "//option[text()='Gerai']")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(gerai_option_locator)
+        )
+    
+    #alfamart
+    def pilih_alfamart(self, method_text):
+        dropdown_element = self.driver.find_element(By.ID, "StateJenisMetode")
+        dropdown = Select(dropdown_element)
+        dropdown.select_by_visible_text(method_text)
+
+    def wait_alfamart_appear(self):
+        alfamart_option_locator = (By.XPATH, "//option[text()='Alfamart']")
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(alfamart_option_locator)
+        )
+# end pilih bank
